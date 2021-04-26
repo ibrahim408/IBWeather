@@ -1,0 +1,41 @@
+.main-container{
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #F6F6F6;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detail-container {
+    margin-top: 50px;
+    width: 70vw;
+    height: 300px;
+    margin-left: 50px;
+    background-color: #FBFBFB;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow:0 0 15px rgba(0,0,0,0.8);
+}
+
+.tabs-container{
+    flex: 1;
+    display: flex;
+}
+
+.tab-box{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F6F6F6;
+}
+
+
+.detail-body-container{
+    flex: 5;
+    display: flex;
+    background-color: #FBFBFB;
+}
