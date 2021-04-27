@@ -1,10 +1,7 @@
 .favorite-container{
-    /* margin: 0px;
-    padding: 0px;
-    box-sizing: border-box; 
-    position: relative;*/
     width: 200px;
     margin-top: 50px;
+    margin-bottom: 100px;
 }
 
 .favorite-container h2{

@@ -74,7 +74,7 @@ function parseDaily(response) {
             if (data.length === 7) break;
             const obj = {
                 temperature: response.properties.periods[i].temperature,
-                shortForecast: getShortForecast(response.properties.periods[i].shortForecast),
+                shortForecast: response.properties.periods[i].shortForecast,
                 period:  getDate(response.properties.periods[i].startTime)
             }
             if (!data.some(dt => dt.period === obj.period)){
@@ -112,7 +112,7 @@ function parseHourly(response) {
 
             const obj = {
                 temperature: temperature,
-                shortForecast: getShortForecast(shortForecast),
+                shortForecast: shortForecast,
                 period:  getHour(startTime) 
             };
 
@@ -135,31 +135,7 @@ function parseHourly(response) {
 }
 
 
-function getShortForecast(str){
-    switch (str){
-        case "Mostly Clear": {
-            return str;
-        }
-        case "Sunny": {
-            return str;
-        }
-        case "Mostly Cloudy": {
-            return str;
-        }
-        case "Snow Likely": {
-            return str;
-        }
-        case "Chance Rain And Snow": {
-            return str;
-        }
-        case "Chance Snow then Mostly Sunny": {
-            return str;
-        }
-        default: {
-            return str;
-        }
-    }
-}
+
 
 
 function getDate(date) {

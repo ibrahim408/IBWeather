@@ -1,12 +1,11 @@
 import  "./Forecast.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSun, faCloud } from '@fortawesome/free-solid-svg-icons'
-
+import { getIcon } from "../../helper/icons";
 function Forecast(props) {
     const {loading} = props.response;
     const {periods} = props.forecast || {forecast: []};
-    console.log('sir loading: ',loading);
-    console.log('sir periods: ',periods);
+
     
     const renderPeriods = () => {
         return (
@@ -21,7 +20,7 @@ function Forecast(props) {
         return (
             <div className='forecast-container'>  
                 <p className="item-temperature">{temperature} F</p>
-                <FontAwesomeIcon style={{fontSize: 50, color: 'grey'}} icon={faSun} />
+                <FontAwesomeIcon style={{fontSize: 50, color: 'grey'}} icon={getIcon(shortForecast)} />
                 <p className="item-time">{period}</p>
             </div>
         )

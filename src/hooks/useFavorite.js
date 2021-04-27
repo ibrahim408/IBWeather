@@ -1,7 +1,8 @@
 import {useState, useEffect} from 'react';
 
 const useFavorite = function(){
-    const [favorites, setFavorites] = useState([{locationName: 'Fresno',gridPoint: ["TOP",31,80]}]);
+    //{locationName: 'Fresno',gridPoint: ["TOP",31,80]}
+    const [favorites, setFavorites] = useState([]);
 
     return {favorites, setFavorites};
 };

@@ -4,7 +4,7 @@ import useFavorite from "../../hooks/useFavorite";
 import useInput from "../../hooks/useInput";
 import Favorite from '../Favorite'
 import Weather from "../Weather";
-import Forecast from "../Forecast/";
+import Forecast from "../Forecast";
 import './Home.css'
 import './Toolbar.css'
 
