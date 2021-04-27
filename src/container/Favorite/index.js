@@ -1,3 +1,5 @@
+import "./Favorite.css";
+
 function Favorite(props){
     const {favorites,setLocationName,setGridPoint} = props;
 
@@ -7,12 +9,15 @@ function Favorite(props){
     };
     
     return (
-        <div style={{marginTop: 50}}>
-            {
-                favorites.map((favorite,index) => {
-                    return <li onClick={ () => onClick(index)}>{favorite.locationName}</li>
-                })
-            }
+        <div className="favorite-container">
+            <h2>Favorites</h2>
+            <ul>
+                {
+                    favorites.map((favorite,index) => {
+                        return <li onClick={ () => onClick(index)}>{favorite.locationName}</li>
+                    })
+                }
+            </ul>
         </div>
     );
 }
