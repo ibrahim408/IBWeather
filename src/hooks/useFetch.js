@@ -2,7 +2,6 @@ import {useState, useEffect} from 'react';
 import {createRequest} from '../helper/createRequest';
 import parseResponse from '../helper/parseResponse'
 
-
 const useFetch = (type,args) => {
     const [result,setResult] = useState(null);
     const [error,setError] = useState(null);
