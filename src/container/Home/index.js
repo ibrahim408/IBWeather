@@ -10,13 +10,13 @@ import './Toolbar.css'
 
 function Home(){
     const {locationName,geolocation,gridPoint,setZipCode,setLocationName,setGridPoint} = useCurrentLocation();
-    const {hourlyForecast,dailyForecast} =  useWeather(geolocation,gridPoint,setGridPoint);
+    const {hourlyForecast,dailyForecast,responseHourlyForecast,responseDailyForecast} =  useWeather(geolocation,gridPoint,setGridPoint);
     const {favorites, setFavorites} = useFavorite();
     const {searchInput,tab,onClickTab,onChange,onSubmit,onSave,} = useInput(setFavorites,setZipCode,gridPoint,favorites,locationName);
 
     const renderTab = (type,typeText) => {
         return (
-            <div style={{backgroundColor: tab === type ? '#d0deec' : null}} 
+            <div style={{backgroundColor: tab === type ? '#99ccff' : null}} 
                 className="tab-box"
                 onClick={() => onClickTab(type)}
             >
@@ -42,8 +42,8 @@ function Home(){
                     <Weather locationName={locationName} hourlyForecast={hourlyForecast} />
                 </div>
             </div>
-            {tab === 'hourly' ? <Forecast forecast={hourlyForecast} /> : null}
-            {tab === 'daily' ? <Forecast forecast={dailyForecast} /> : null}
+            {tab === 'hourly' ? <Forecast forecast={hourlyForecast} response={responseHourlyForecast} /> : null}
+            {tab === 'daily' ? <Forecast forecast={dailyForecast} response={responseDailyForecast} /> : null}
             {tab === 'favorites' ? 
                 <Favorite favorites={favorites} setLocationName={setLocationName} setGridPoint={setGridPoint} />
             : null}
@@ -52,93 +52,6 @@ function Home(){
 }
 
 
-
-
 export default Home;
-
-
-
-
-// console.log('locationName: ',locationName);
-// console.log('hourlyForecast: ',hourlyForecast);
-// console.log('dailyForecast: ',dailyForecast);
-// console.log('gridPoint: ',gridPoint);
-// console.log('favorites: ',favorites);
-// console.log('');
-
-
-
-//                <h1>{locationName}</h1>
-
-
-//<Favorite favorites={favorites} setLocationName={setLocationName} setGridPoint={setGridPoint} />
-{/* <Daily />
-<Hourly /> */}
-
-// HOOKS
-//
-//
-//const {geolocation,setGeolocation,gridPoint,setGridPoint} = useCurrentLocation();
-//const fetchGridPoint = useFetch(TYPE_GRID,[37.423021,-122.083739]);
-//const fetchToday = useFetch(TYPE_TODAY,[31,80]);
-//const fetchSeven  = useFetch(TYPE_SEVEN_DAY,[31,90]);
-
-//
-// google api
-  //const fetchGeolocation = useFetch(TYPE_GEOLOCATION,['00000','00000']);  
-  //console.log('fetchGeolocation: ', fetchGeolocation);
-
-
-
-
-//
-//
-// FAVORITES
-    // const {favorites,setFavorites} = useFavorite();
-    // console.log('favorites: ', favorites);
-    // if (favorites.length === 1)
-    //     setFavorites(favorites.concat(1));
-
-
-//
-//
-// HOURLy
-// must end with the first start date
-// useEffect(() => {
-//     if (fetchToday.loading === false && fetchToday.error === null){
-//         console.log('today forcast: ', fetchToday);
-
-//         const hours = fetchToday.result.properties.periods;
-//         hours.forEach(hour => {
-//             const currentTime = new Date(hour.startTime)
-//             console.log('date: ', currentTime.getDate())
-//             console.log('hour: ', currentTime.getHours())
-//             console.log('=========================')
-//         })
-//     }
-// },[fetchToday.loading])
-
-
-
-//
-//
-// USING location to get grid points
-//const fetchGridPoint = useFetch(`https://api.weather.gov/points/${geolocation[0]},${geolocation[1]}`);
-
-// //enter wrong url handle error
-// useEffect(() => {
-//     //console.log('useEffect: ', fetchGridPoint);
-//     if (fetchGridPoint.loading === false && fetchGridPoint.error === null){
-//         console.log('fetchGridPoint: ',fetchGridPoint);
-//         // const gridX = fetchGridPoint.result.properties.gridX;
-//         // const gridY = fetchGridPoint.result.properties.gridY;
-//         //setGridPoint([gridX,gridY]);
-//     } else if (fetchGridPoint.error === true) {
-//         console.log('sirr error');
-//         console.log('sirr error');
-//         console.log('sirr error');      
-//     }
-// }, [fetchGridPoint.loading]);
-
 
 

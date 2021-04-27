@@ -19,8 +19,3 @@ export const createRequest = function (type,args){
         }
     }
 };
-
-//https://maps.googleapis.com/maps/api/geocode/json?address=${args[0]}&key=AIzaSyD8RBTu-q-EVrO28tXVyUQMXzZYr_Hb2RQ
-
-// https://api.weather.gov/gridpoints/TOP/{gridX},{gridY}/forecast 
-//https://maps.googleapis.com/maps/api/geocode/json?address=california&key=AIzaSyD8RBTu-q-EVrO28tXVyUQMXzZYr_Hb2RQ

@@ -1,10 +1,22 @@
 import  "./Forecast.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSun } from '@fortawesome/free-solid-svg-icons'
+import { faSun, faCloud } from '@fortawesome/free-solid-svg-icons'
 
 function Forecast(props) {
+    const {loading} = props.response;
     const {periods} = props.forecast || {forecast: []};
-
+    console.log('sir loading: ',loading);
+    console.log('sir periods: ',periods);
+    
+    const renderPeriods = () => {
+        return (
+            <div>
+                {periods.map(period => {
+                    return renderPeriod(period);
+                })}
+            </div>
+        )
+    }
     const renderPeriod = ({temperature,shortForecast,period}) => {
         return (
             <div className='forecast-container'>  
@@ -14,28 +26,27 @@ function Forecast(props) {
             </div>
         )
     }
-    
-    return (
-        <div>
-            {periods && periods.map(period => {
-                return renderPeriod(period);
-            })}
-        </div>
-    );
+
+    const renderDefault = () => {
+        return (
+            <div className="default-container">
+                <FontAwesomeIcon style={{fontSize: 150, color: 'grey'}} icon={faCloud} />
+            </div>
+        )      
+    }
+
+    const renderLoading = () => {
+        return(
+            <div style={{backgroundColor: 'red'}}className="default-container">
+            </div>
+        )     
+    }
+
+
+    if (loading){  return renderLoading();
+    } else if (periods){    return renderPeriods(); 
+    } else {   return renderDefault();}
 }
-
-
-// {<ul> 
-//     {
-//     numbers.map(number => {
-//         return renderItem(number)
-//     })
-// }  
-// </ul>} 
-
-{/* <div className="list-container">
-</div>  */}
-
 
 export default Forecast
 

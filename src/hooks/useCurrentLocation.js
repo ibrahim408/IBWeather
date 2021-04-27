@@ -1,7 +1,6 @@
 import {useEffect, useState} from 'react';
 import useFetch from "./useFetch";
-import {TYPE_HOURLY,TYPE_GRID,TYPE_GEOLOCATION, TYPE_DAILY} from '../helper/constants'
-
+import {TYPE_GEOLOCATION} from '../helper/constants'
 
 const useCurrentLocation = function(){
     const [zipCode,setZipCode] = useState([null,null]);
@@ -16,7 +15,7 @@ const useCurrentLocation = function(){
 
 
     useEffect(() => {
-        if (responseGeolocation.loading === false && responseGeolocation.error === null){
+        if (responseGeolocation.loading === false && responseGeolocation.error === null && responseGeolocation.result){
             if (responseGeolocation.result.lat && responseGeolocation.result.lng){
                 setLocationName(responseGeolocation.result.location);
                 setGeolocation([responseGeolocation.result.lat,responseGeolocation.result.lng])
@@ -32,6 +31,3 @@ const useCurrentLocation = function(){
 };
 
 export default useCurrentLocation;
-    //
-    //
-    // is there a resonse why useEffect for diff response are different

@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
 import { isZipCode } from "../helper/utility";
 
 function useInput(setFavorites,setZipCode,gridPoint,favorites,locationName) {

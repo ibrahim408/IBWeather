@@ -30,7 +30,7 @@ const useWeather = function(geolocation,gridPoint,setGridPoint) {
         }
     },[responseGrid.loading])
 
-    return {hourlyForecast,dailyForecast};
+    return {hourlyForecast,dailyForecast,responseHourlyForecast,responseDailyForecast};
 }
 
 export default useWeather;
