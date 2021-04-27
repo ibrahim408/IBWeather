@@ -34,10 +34,13 @@ function Forecast(props) {
             </div>
         )      
     }
-
+    const styleBorderColor = 'white';
+    const styleBorderTopColor = '#9999ff';
+    
     const renderLoading = () => {
         return(
-            <div style={{backgroundColor: 'red'}}className="default-container">
+            <div className="spinnerContainer">
+                <div className="loading-spinner" style={{borderColor: styleBorderColor ,borderTopColor: styleBorderTopColor}}></div>
             </div>
         )     
     }

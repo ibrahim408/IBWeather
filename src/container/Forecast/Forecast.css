@@ -3,6 +3,7 @@
     height: 150px;
     margin-top: 50px;
     margin-left: 50px;
+    margin-bottom: 100px;
     background-color: #FBFBFB;
     border-radius: 20px;
     box-shadow:0 0 15px rgba(0,0,0,0.8);
@@ -18,5 +19,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.spinnerContainer{
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+    margin-top: 50px;
+    background-color: transparent;
+}
+.loading-spinner{
+    margin: 5px;
+    width: 10rem;
+    height: 10rem;
+    display: inline-block;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: 1s spin infinite ease-in-out;
+    background-color: transparent;
+}
+
+@keyframes spin{
+    to{
+        transform: rotate(360deg);
+    }
 }
 
