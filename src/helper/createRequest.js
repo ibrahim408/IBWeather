@@ -15,7 +15,7 @@ export const createRequest = function (type,args){
             return `${BASE_URL}/gridpoints/${args[0]}/${args[1]},${args[2]}/forecast/hourly`;
         }
         case TYPE_GEOLOCATION: {
-            return `${GEO_URL}${args[0]}&key=AIzaSyD8RBTu-q-EVrO28tXVyUQMXzZYr_Hb2RQ`;
+            return `${GEO_URL}${args[0]}&key=${process.env.REACT_APP_NOT_SECRET_CODE}`;
         }
     }
 };

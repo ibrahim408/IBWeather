@@ -4,7 +4,7 @@ import { faSun } from '@fortawesome/free-solid-svg-icons'
 
 function Forecast(props) {
     const {periods} = props.forecast || {forecast: []};
-    // console.log('hourly: ',periods);
+
     const renderPeriod = ({temperature,shortForecast,period}) => {
         return (
             <div className='forecast-container'>  
@@ -14,6 +14,7 @@ function Forecast(props) {
             </div>
         )
     }
+    
     return (
         <div>
             {periods && periods.map(period => {

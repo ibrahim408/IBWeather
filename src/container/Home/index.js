@@ -1,44 +1,18 @@
-import {useState} from 'react'
 import useCurrentLocation from '../../hooks/useCurrentLocation'
+import useWeather from "../../hooks/useWeather";
 import useFavorite from "../../hooks/useFavorite";
+import useInput from "../../hooks/useInput";
 import Favorite from '../Favorite'
 import Weather from "../Weather";
 import Forecast from "../Forecast/";
-import Daily from '../Daily'
-import Hourly from '../Hourly/'
-import {isZipCode} from '../../helper/utility'
 import './Home.css'
 import './Toolbar.css'
 
 function Home(){
-    const {locationName,gridPoint,hourlyForecast,dailyForecast,setZipCode,setLocationName,setGridPoint} = useCurrentLocation();
+    const {locationName,geolocation,gridPoint,setZipCode,setLocationName,setGridPoint} = useCurrentLocation();
+    const {hourlyForecast,dailyForecast} =  useWeather(geolocation,gridPoint,setGridPoint);
     const {favorites, setFavorites} = useFavorite();
-    const [searchInput,setSearchInput] = useState('');
-    const [tab,setTab] = useState('hourly');
-
-
-    const onChange = (event) => {
-        setSearchInput(event.target.value)
-    }
-    const onSubmit = () => {
-        if (isZipCode(searchInput)){
-            setZipCode([searchInput,searchInput]);
-        }
-    };
-    
-    const onSave = () => {
-        if (gridPoint[0] && gridPoint[1] && gridPoint[2]){
-            if (!favorites.some(favorite => favorite.locationName === locationName)){
-                setFavorites(favorites.concat({locationName,gridPoint}))
-            };
-        } else {
-            console.log('no data save sir');
-        }
-    };
-
-    const onClickTab = (tb) => {
-        setTab(tb);
-    };
+    const {searchInput,tab,onClickTab,onChange,onSubmit,onSave,} = useInput(setFavorites,setZipCode,gridPoint,favorites,locationName);
 
     const renderTab = (type,typeText) => {
         return (
@@ -51,17 +25,13 @@ function Home(){
         )
     }
 
-    // console.log('hourlyForecast',hourlyForecast);
-    // console.log('dailyForecast: ',dailyForecast);
     return(
         <div className="main-container">
-
             <div className="toolbar-container">
                 <input  className="input-container" placeholder="Enter zip code" value={searchInput} onChange={onChange}/>
                 <div className="search-container" onClick={onSubmit}>search</div>
                 <div className="save-container" onClick={onSave}>save zipcode</div>
             </div>
-
             <div className="detail-container">
                 <div className="tabs-container">
                     {renderTab('hourly','Hourly')}
@@ -77,7 +47,6 @@ function Home(){
             {tab === 'favorites' ? 
                 <Favorite favorites={favorites} setLocationName={setLocationName} setGridPoint={setGridPoint} />
             : null}
-
         </div>
     )
 }
