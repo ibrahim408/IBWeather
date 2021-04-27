@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faCloudSun, faCloud, faCloudSunRain, faCloudShowersHeavy } from '@fortawesome/free-solid-svg-icons'
 
 const shortForecast = {
@@ -20,6 +19,8 @@ const shortForecast = {
     'Slight Chance Rain Showers then Slight Chance Showers And Thunderstorms': faCloudSunRain,
     'Slight Chance Rain Showers then Mostly Sunny': faCloudSunRain,
     'Partly Sunny then Chance Showers And Thunderstorms': faCloudSunRain,
+    'Chance Rain Showers': faCloudSunRain,
+    'Slight Chance Rain Showers': faCloudSunRain,
     'Rain Showers': faCloudShowersHeavy,
     'Showers And Thunderstorms': faCloudShowersHeavy
 }
@@ -27,7 +28,7 @@ export function getIcon(str) {
     if (shortForecast[str]){
         return shortForecast[str]
     } else {
-        console.log('sir sir sir this not here', str);
+        console.log('add missing shortForecast', str);
         return faSun
     }
 }

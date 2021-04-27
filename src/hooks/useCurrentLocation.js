@@ -3,11 +3,9 @@ import useFetch from "./useFetch";
 import {TYPE_GEOLOCATION} from '../helper/constants'
 
 const useCurrentLocation = function(){
+    const [locationName,setLocationName] = useState(''); 
     const [zipCode,setZipCode] = useState([null,null]);
     const [geolocation,setGeolocation] = useState([null,null]);
-    const [locationName,setLocationName] = useState('');
-    // const [geolocation,setGeolocation] = useState([37.423021,-122.083739]);
-    // const [locationName,setLocationName] = useState('San Jose CA');  
     const [gridPoint,setGridPoint] = useState([null,null,null]);    
     const responseGeolocation = useFetch(TYPE_GEOLOCATION,zipCode);
 

@@ -19,8 +19,6 @@ function useInput(setFavorites,setZipCode,gridPoint,favorites,locationName) {
             if (!favorites.some(favorite => favorite.locationName === locationName)){
                 setFavorites(favorites.concat({locationName,gridPoint}))
             };
-        } else {
-            console.log('no data save sir');
         }
     };
 

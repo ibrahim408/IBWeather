@@ -2,7 +2,7 @@ import "./Favorite.css";
 
 function Favorite(props){
     const {favorites,setLocationName,setGridPoint} = props;
-
+    
     const onClick = (index) => {
         setLocationName(favorites[index].locationName)
         setGridPoint(favorites[index].gridPoint);
@@ -14,7 +14,7 @@ function Favorite(props){
             <ul>
                 {
                     favorites.map((favorite,index) => {
-                        return <li onClick={ () => onClick(index)}>{favorite.locationName}</li>
+                        return <li key={index.toString()} onClick={ () => onClick(index)}>{favorite.locationName}</li>
                     })
                 }
             </ul>

@@ -1,6 +1,6 @@
 import  "./Forecast.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSun, faCloud } from '@fortawesome/free-solid-svg-icons'
+import { faCloud } from '@fortawesome/free-solid-svg-icons'
 import { getIcon } from "../../helper/icons";
 function Forecast(props) {
     const {loading} = props.response;
@@ -10,15 +10,15 @@ function Forecast(props) {
     const renderPeriods = () => {
         return (
             <div>
-                {periods.map(period => {
-                    return renderPeriod(period);
+                {periods.map((period,index) => {
+                    return renderPeriod(period,index);
                 })}
             </div>
         )
     }
-    const renderPeriod = ({temperature,shortForecast,period}) => {
+    const renderPeriod = ({temperature,shortForecast,period},index) => {
         return (
-            <div className='forecast-container'>  
+            <div key={index.toString()} className='forecast-container'>  
                 <p className="item-temperature">{temperature} F</p>
                 <FontAwesomeIcon style={{fontSize: 50, color: 'grey'}} icon={getIcon(shortForecast)} />
                 <p className="item-time">{period}</p>
@@ -33,13 +33,11 @@ function Forecast(props) {
             </div>
         )      
     }
-    const styleBorderColor = 'white';
-    const styleBorderTopColor = '#9999ff';
-    
+
     const renderLoading = () => {
         return(
             <div className="spinnerContainer">
-                <div className="loading-spinner" style={{borderColor: styleBorderColor ,borderTopColor: styleBorderTopColor}}></div>
+                <div className="loading-spinner" style={{borderColor: 'white' ,borderTopColor: '#9999ff'}}></div>
             </div>
         )     
     }

@@ -26,7 +26,7 @@ function parseGeolocation(response) {
         
         return data;
     } else {
-        return 'error'
+        return null
     }
 }
 
@@ -61,7 +61,7 @@ function parseGrid(response) {
         data[2] = response.properties.gridY;
         return data;
     } else {
-        return [null,null];
+        return null;
     }
 }
 
@@ -87,11 +87,6 @@ function parseDaily(response) {
     }
 
 }
-
-
-// if (!favorites.some(favorite => favorite.locationName === locationName)){
-//     setFavorites(favorites.concat({locationName,gridPoint}))
-// };
 
 function parseHourly(response) {
     const check = response.properties?.periods;
@@ -135,9 +130,6 @@ function parseHourly(response) {
 }
 
 
-
-
-
 function getDate(date) {
     var today = new Date(date);
     var dd = String(today.getDate()).padStart(2, '0');
@@ -160,31 +152,7 @@ function getHour(str) {
     var strTime = hours + ':' + minutes + ' ' + ampm;
     return strTime;
   }
-// "Rain Showers"
-// "Showers And Thunderstorms Likely"
-// "Chance Light Rain then Mostly Cloudy"
-// "Partly Sunny"
-
 
 
 export default parseResponse;
 
-
-//         hours.forEach(hour => {
-//             const currentTime = new Date(hour.startTime)
-//             console.log('date: ', currentTime.getDate())
-//             console.log('hour: ', currentTime.getHours())
-//             console.log('=========================')
-//         })
-
-// const periods = response.properties.periods;
-// const todayDate = new Date(periods[0].startTime);
-// const today = todayDate.getDate();
-
-// periods.forEach(period => {
-//     const current = new Date(period.startTime);
-//     currentDate = 
-//     if (period.startTime){
-        
-//     }
-// })

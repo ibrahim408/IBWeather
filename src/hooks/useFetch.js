@@ -12,7 +12,6 @@ const useFetch = (type,args) => {
             try {
                 setLoading(true);
                 const request = createRequest(type,args);
-                console.log('fetching: ',request)
                 const res = await fetch(request);
                 const response = await res.json();
                 const data = parseResponse(type,response);
