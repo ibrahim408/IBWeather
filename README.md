@@ -1,5 +1,8 @@
 # Access the site https://ib-weather.vercel.app/
 
+<img width="1186" alt="Screen Shot 2021-04-27 at 12 43 40 AM" src="https://user-images.githubusercontent.com/12803102/116204876-091b1b80-a6f2-11eb-85ab-67abab0073ba.png">
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
