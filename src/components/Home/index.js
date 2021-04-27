@@ -44,9 +44,7 @@ function Home(){
             </div>
             {tab === 'hourly' ? <Forecast forecast={hourlyForecast} response={responseHourlyForecast} /> : null}
             {tab === 'daily' ? <Forecast forecast={dailyForecast} response={responseDailyForecast} /> : null}
-            {tab === 'favorites' ? 
-                <Favorite favorites={favorites} setLocationName={setLocationName} setGridPoint={setGridPoint} />
-            : null}
+            {tab === 'favorites' ? <Favorite favorites={favorites} setLocationName={setLocationName} setGridPoint={setGridPoint} /> : null}
         </div>
     )
 }

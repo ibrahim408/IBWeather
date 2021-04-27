@@ -24,7 +24,8 @@ function useInput(setFavorites,setZipCode,gridPoint,favorites,locationName) {
 
     const onClickTab = (tb) => {
         setTab(tb);
-    };  
+    };
+      
     return {
         searchInput,
         tab,

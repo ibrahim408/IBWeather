@@ -6,7 +6,6 @@ function Forecast(props) {
     const {loading} = props.response;
     const {periods} = props.forecast || {forecast: []};
 
-    
     const renderPeriods = () => {
         return (
             <div>
@@ -16,6 +15,7 @@ function Forecast(props) {
             </div>
         )
     }
+    
     const renderPeriod = ({temperature,shortForecast,period},index) => {
         return (
             <div key={index.toString()} className='forecast-container'>  
